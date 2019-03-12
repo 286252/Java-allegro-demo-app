@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloWorldEndPoint {
-    //localhost:8080/hello
-    //helloworld
 
     @RequestMapping(method = /*ctrl + spacja*/ RequestMethod.GET, path/*ctrl+p - czym wypełnić*/ = "/hello")
 
