@@ -32,6 +32,6 @@ public class DemoappApplicationTests {
 		//then
 		//odpowiedź będzie zawierała napis "Hello World" i kod 200
 		Assertions.assertThat(response.getStatusCodeValue()).isEqualTo(200);
-		Assertions.assertThat(response.getBody()).isEqualTo("Hello World!");
+		Assertions.assertThat(response.getBody()).isEqualTo("Hello Herokuu World :)");
 	}
 }
