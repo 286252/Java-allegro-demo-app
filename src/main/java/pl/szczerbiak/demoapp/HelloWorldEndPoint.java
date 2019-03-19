@@ -10,6 +10,6 @@ public class HelloWorldEndPoint {
     @RequestMapping(method = /*ctrl + spacja*/ RequestMethod.GET, path/*ctrl+p - czym wypełnić*/ = "/hello")
 
     String hello(){
-        return "Hello Herokuu World :)" ;
+        return "Hello Heroku World :)" ;
     }
 }
