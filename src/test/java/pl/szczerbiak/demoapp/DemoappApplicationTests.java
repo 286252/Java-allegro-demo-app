@@ -1,5 +1,6 @@
 package pl.szczerbiak.demoapp;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,15 +13,18 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class DemoappApplicationTests {
+public abstract	 class DemoappApplicationTests {
 
 	@Autowired
-	TestRestTemplate httpClient;
+	protected TestRestTemplate httpClient;
 
 	@LocalServerPort
-	int port;
+	protected int port;
 
-	@Test
+	@Autowired
+	protected ObjectMapper objectMapper;
+
+	/*@Test
 	public void shouldReturnGreetings(){
 		//given
 		final String url = "http://localhost:" + port + "/hello";
@@ -33,5 +37,5 @@ public class DemoappApplicationTests {
 		//odpowiedź będzie zawierała napis "Hello World" i kod 200
 		Assertions.assertThat(response.getStatusCodeValue()).isEqualTo(200);
 		Assertions.assertThat(response.getBody()).isEqualTo("Hello Heroku World");
-	}
+	}*/
 }

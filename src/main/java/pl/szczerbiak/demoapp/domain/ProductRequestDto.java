@@ -1,9 +1,15 @@
 package pl.szczerbiak.demoapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductRequestDto {
     private final String name;
 
-    public ProductRequestDto(String name) {
+    @JsonCreator
+    public ProductRequestDto(@JsonProperty("name") String name) {
         this.name = name;
     }
 

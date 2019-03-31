@@ -10,29 +10,41 @@ import java.util.UUID;
 public class ProductFacadeImpl implements ProductFacade {
 
 
-    public final ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
-    ProductFacadeImpl(ProductRepository productRepository){
+    public ProductFacadeImpl(ProductRepository productRepository){
         this.productRepository = productRepository;
     }
 
     @Override
-    public ProductResponseDto create(ProductRequestDto productRequest){
+    public ProductResponseDto findById(String id){
+        Product product = productRepository.findById(id);
+        return  new ProductResponseDto(product.getId(),product.getName());
 
+    }
+
+    @Override
+    public ProductResponseDto create(ProductRequestDto productRequest){
+        //walidacja
         if (!productRequest.isValid()){
             throw new RuntimeException("Product name cannot be empty!");
         }
+        //Stworzyć produkt
         String id = UUID.randomUUID().toString();
         LocalDateTime createdAt = LocalDateTime.now();
         Product product = new Product(id, productRequest.getName(), createdAt);
 
+        // zapisać go
         productRepository.save(product);
 
-        ProductResponseDto responseDto = new ProductResponseDto(product.getId(),product.getName());
 
-        return null;
-        //Stworzyć produkt
-        // zapisać go
+        //ProductResponseDto responseDto = new ProductResponseDto(product.getId(),product.getName());
+
         //przemapować produkt na product response i zwrócić
+        return new ProductResponseDto(
+                product.getId(),
+                product.getName()
+        );
+
     }
 }

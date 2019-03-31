@@ -1,10 +1,22 @@
 package pl.szczerbiak.demoapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ProductResponseDto {
     private final String id;
     private final String name;
 
-    public ProductResponseDto(String id, String name) {
+    @Override
+    public String toString() {
+        return "ProductResponseDto{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    @JsonCreator
+    public ProductResponseDto(@JsonProperty("id")String id, @JsonProperty("name") String name) {
         this.id = id;
         this.name = name;
     }
