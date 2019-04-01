@@ -1,5 +1,7 @@
 package pl.szczerbiak.demoapp.api;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.szczerbiak.demoapp.domain.ProductFacade;
 import pl.szczerbiak.demoapp.domain.ProductRequestDto;
@@ -11,6 +13,7 @@ class ProductEndpoint {
 
     private final ProductFacade productFacade;
 
+    @Autowired
     ProductEndpoint(ProductFacade productFacade){
         this.productFacade = productFacade;
     }
@@ -25,5 +28,14 @@ class ProductEndpoint {
         return productFacade.findById(id);
     }
 
+    @PutMapping("/{id}")
+    ProductResponseDto updateProduct(@PathVariable("id") String id, @RequestBody ProductRequestDto productRequestDto){
+        return productFacade.update(id, productRequestDto);
+    }
+
+    @DeleteMapping("/{id}")
+    ResponseEntity deleteProduct(@PathVariable String id){
+        return productFacade.delete(id);
+    }
 }
 //@JSONCreator

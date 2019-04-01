@@ -3,6 +3,7 @@ package pl.szczerbiak.demoapp.infrastructure;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import pl.szczerbiak.demoapp.domain.Product;
+import pl.szczerbiak.demoapp.domain.ProductNotFoundException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +20,23 @@ public class InMemoryProductRepository implements ProductRepository{
 
     @Override
     public Product findById(String id) {
+        if(!products.containsKey(id)) throw new ProductNotFoundException("Product not found!");
         return products.get(id);
+    }
+
+    @Override
+    public Product update(String name, Product product) {
+        if(!products.containsKey(product.getId())) throw new
+                ProductNotFoundException("Aktualizacja danych się nie powiodła, nie znaleziono produktu!");
+        products.put(product.getId(), new Product(product.getId(), name , product.getCreatedAt()));
+        return products.get(product.getId());
+    }
+
+    @Override
+    public void delete(String id) {
+        if(!products.containsKey(id)) throw new ProductNotFoundException("Usunięcie produktu się nie powiodło, ponieważ, " +
+                "nie znaleziono produktu!");
+        products.remove(id);
     }
 
 

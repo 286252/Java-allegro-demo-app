@@ -1,5 +1,7 @@
 package pl.szczerbiak.demoapp.domain;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import pl.szczerbiak.demoapp.infrastructure.ProductRepository;
 
@@ -45,6 +47,24 @@ public class ProductFacadeImpl implements ProductFacade {
                 product.getId(),
                 product.getName()
         );
+    }
 
+    @Override
+    public ProductResponseDto update(String id, ProductRequestDto productRequestDto) {
+        if (!productRequestDto.isValid()){
+            throw new RuntimeException("Product name cannot be empty!");
+        }
+
+        Product product = productRepository.findById(id);
+        Product updatedProduct = productRepository.update(productRequestDto.getName(), product);
+
+        return new ProductResponseDto(updatedProduct.getId(), updatedProduct.getName());
+    }
+
+    @Override
+    public ResponseEntity delete(String id){
+        Product product = productRepository.findById(id);
+        productRepository.delete(id);
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 }
