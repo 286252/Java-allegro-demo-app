@@ -2,6 +2,7 @@ package pl.szczerbiak.demoapp.domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class ProductResponseDto {
     private final String id;
@@ -15,6 +16,7 @@ public class ProductResponseDto {
                 '}';
     }
 
+    @JsonPropertyOrder({"id" , "name"}) //
     @JsonCreator
     public ProductResponseDto(@JsonProperty("id")String id, @JsonProperty("name") String name) {
         this.id = id;
