@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.szczerbiak.demoapp.domain.ProductFacade;
 import pl.szczerbiak.demoapp.domain.ProductRequestDto;
 import pl.szczerbiak.demoapp.domain.ProductResponseDto;
+import pl.szczerbiak.demoapp.domain.ProductsListResponseDto;
 
 @RestController
 @RequestMapping("/products")
@@ -31,6 +32,11 @@ class ProductEndpoint {
     @PutMapping("/{id}")
     ProductResponseDto updateProduct(@PathVariable("id") String id, @RequestBody ProductRequestDto productRequestDto){
         return productFacade.update(id, productRequestDto);
+    }
+
+    @GetMapping
+    ProductsListResponseDto getAllProducts(){
+        return productFacade.getAll();
     }
 
     @DeleteMapping("/{id}")

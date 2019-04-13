@@ -14,4 +14,7 @@ public interface ProductFacade {
 
     //void delete(String dto)
     ResponseEntity delete(String id);
+
+    //getAll
+    ProductsListResponseDto getAll();
 }

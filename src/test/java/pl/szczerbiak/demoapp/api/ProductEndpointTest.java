@@ -12,6 +12,7 @@ import pl.szczerbiak.demoapp.DemoappApplicationTests;
 import pl.szczerbiak.demoapp.domain.ProductFacade;
 import pl.szczerbiak.demoapp.domain.ProductRequestDto;
 import pl.szczerbiak.demoapp.domain.ProductResponseDto;
+import pl.szczerbiak.demoapp.domain.ProductsListResponseDto;
 
 import java.util.UUID;
 
@@ -88,6 +89,25 @@ public class ProductEndpointTest extends DemoappApplicationTests {
         ResponseEntity<ProductResponseDto> result = httpClient.getForEntity(url, ProductResponseDto.class);
         //then
         assertThat(result.getStatusCodeValue()).isEqualTo(404);
+    }
+
+    @Test
+    public void ShouldGetALLExistProduct() {
+        //given
+        ProductRequestDto request1 = new ProductRequestDto("product1");
+        productFacade.create(request1);
+        ProductRequestDto request2 = new ProductRequestDto("product2");
+        productFacade.create(request2);
+
+        final String url = "http://localhost:" + port + "/products";
+
+        //when
+        ResponseEntity<ProductsListResponseDto> result = httpClient.getForEntity(url, ProductsListResponseDto.class);
+        ProductsListResponseDto products = result.getBody();
+        //then
+        assertThat(result.getStatusCodeValue()).isEqualTo(200);
+        assertThat(products.getProducts().get(0).getName()).isEqualTo(productFacade.getAll().getProducts().get(0).getName());
+        assertThat(products.getProducts().get(1).getName()).isEqualTo(productFacade.getAll().getProducts().get(1).getName());
     }
 
     String mapToJson (ProductRequestDto productRequestDto) {

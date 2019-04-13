@@ -6,6 +6,7 @@ import pl.szczerbiak.demoapp.domain.Product;
 import pl.szczerbiak.demoapp.domain.ProductNotFoundException;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Repository
@@ -37,6 +38,11 @@ public class InMemoryProductRepository implements ProductRepository{
         if(!products.containsKey(id)) throw new ProductNotFoundException("Usunięcie produktu się nie powiodło, ponieważ, " +
                 "nie znaleziono produktu!");
         products.remove(id);
+    }
+
+    @Override
+    public List<Product> getAll() {
+        return List.copyOf(products.values());
     }
 
 
