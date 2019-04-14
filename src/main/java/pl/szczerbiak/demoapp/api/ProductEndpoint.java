@@ -24,7 +24,7 @@ class ProductEndpoint {
         return productFacade.create(productRequestDto);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/product-id-{id}")
     ProductResponseDto getProduct(@PathVariable("id") String id){
         return productFacade.findById(id);
     }

@@ -23,13 +23,13 @@ public class ProductFacadeImpl implements ProductFacade {
     @Override
     public ProductsListResponseDto getAll() {
         List<Product> products = productRepository.getAll();
-        return new ProductsListResponseDto(products.stream().map(product -> new ProductResponseDto(product.getId(), product.getName())).collect(Collectors.toList()));
+        return new ProductsListResponseDto(products.stream().map(product -> new ProductResponseDto(product.getId(), product.getName(),product.getPriceDto())).collect(Collectors.toList()));
     }
 
     @Override
     public ProductResponseDto findById(String id){
         Product product = productRepository.findById(id);
-        return  new ProductResponseDto(product.getId(),product.getName());
+        return  new ProductResponseDto(product.getId(),product.getName(),product.getPriceDto());
 
     }
 
@@ -42,7 +42,7 @@ public class ProductFacadeImpl implements ProductFacade {
         //Stworzyć produkt
         String id = UUID.randomUUID().toString();
         LocalDateTime createdAt = LocalDateTime.now();
-        Product product = new Product(id, productRequest.getName(), createdAt);
+        Product product = new Product(id, productRequest.getName(), createdAt, productRequest.getPrice());
 
         // zapisać go
         productRepository.save(product);
@@ -53,7 +53,8 @@ public class ProductFacadeImpl implements ProductFacade {
         //przemapować produkt na product response i zwrócić
         return new ProductResponseDto(
                 product.getId(),
-                product.getName()
+                product.getName(),
+                product.getPriceDto()
         );
     }
 
@@ -64,9 +65,9 @@ public class ProductFacadeImpl implements ProductFacade {
         }
 
         Product product = productRepository.findById(id);
-        Product updatedProduct = productRepository.update(productRequestDto.getName(), product);
+        Product updatedProduct = productRepository.update(productRequestDto.getName(),product, productRequestDto.getPrice());
 
-        return new ProductResponseDto(updatedProduct.getId(), updatedProduct.getName());
+        return new ProductResponseDto(updatedProduct.getId(), updatedProduct.getName(),updatedProduct.getPriceDto());
     }
 
     @Override

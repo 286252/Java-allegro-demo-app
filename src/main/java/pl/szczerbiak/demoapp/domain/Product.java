@@ -9,13 +9,18 @@ public final class Product {
     private final String id;
     private final String name;
     private final LocalDateTime createdAt;
-    //private final PriceDto priceDto;
 
-    public Product(String id, String name, LocalDateTime createdAt/*, PriceDto priceDto*/) {
+    public PriceDto getPriceDto() {
+        return priceDto;
+    }
+
+    private final PriceDto priceDto;
+
+    public Product(String id, String name, LocalDateTime createdAt, PriceDto priceDto) {
         this.id = id;
         this.name = name;
         this.createdAt = createdAt;
-        //this.priceDto = new PriceDto(priceDto.getAmount(),priceDto.getCurrency());
+        this.priceDto = priceDto;
 
     }
 

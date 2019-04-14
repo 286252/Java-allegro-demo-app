@@ -92,6 +92,15 @@ public class ProductEndpointTest extends DemoappApplicationTests {
     }
 
     @Test
+    public void ShouldGetAll(){
+        ProductRequestDto req1 = new ProductRequestDto("product1");
+        productFacade.create(req1);
+        ProductRequestDto req2 = new ProductRequestDto("product2");
+        productFacade.create(req2);
+
+    }
+
+    @Test
     public void ShouldGetALLExistProduct() {
         //given
         ProductRequestDto request1 = new ProductRequestDto("product1");

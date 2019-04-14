@@ -2,6 +2,7 @@ package pl.szczerbiak.demoapp.infrastructure;
 
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import pl.szczerbiak.demoapp.domain.PriceDto;
 import pl.szczerbiak.demoapp.domain.Product;
 import pl.szczerbiak.demoapp.domain.ProductNotFoundException;
 
@@ -26,10 +27,10 @@ public class InMemoryProductRepository implements ProductRepository{
     }
 
     @Override
-    public Product update(String name, Product product) {
+    public Product update(String name, Product product, PriceDto priceDto) {
         if(!products.containsKey(product.getId())) throw new
                 ProductNotFoundException("Aktualizacja danych się nie powiodła, nie znaleziono produktu!");
-        products.put(product.getId(), new Product(product.getId(), name , product.getCreatedAt()));
+        products.put(product.getId(), new Product(product.getId(), name , product.getCreatedAt(),priceDto));
         return products.get(product.getId());
     }
 
