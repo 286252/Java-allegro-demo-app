@@ -23,7 +23,7 @@ public class ProductFacadeImpl implements ProductFacade {
     @Override
     public ProductsListResponseDto getAll() {
         List<Product> products = productRepository.getAll();
-        return new ProductsListResponseDto(products.stream().map(product -> new ProductResponseDto(product.getId(), product.getName(),product.getPriceDto())).collect(Collectors.toList()));
+        return new ProductsListResponseDto(products.stream().map(product -> new ProductResponseDto(product.getId(), product.getName(),null/*product.getPriceDto()*/)).collect(Collectors.toList()));
     }
 
     @Override
