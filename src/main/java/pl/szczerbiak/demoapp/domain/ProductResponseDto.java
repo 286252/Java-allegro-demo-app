@@ -14,7 +14,7 @@ public class ProductResponseDto {
         return "ProductResponseDto{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", price='" + priceDto + '\'' +
+                //", price='" + priceDto + '\'' +
                 '}';
     }
 
