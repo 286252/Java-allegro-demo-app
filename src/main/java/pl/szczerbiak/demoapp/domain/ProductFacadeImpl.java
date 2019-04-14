@@ -23,13 +23,15 @@ public class ProductFacadeImpl implements ProductFacade {
     @Override
     public ProductsListResponseDto getAll() {
         List<Product> products = productRepository.getAll();
-        return new ProductsListResponseDto(products.stream().map(product -> new ProductResponseDto(product.getId(), product.getName(),product.getPriceDto())).collect(Collectors.toList()));
+        return new ProductsListResponseDto(products.stream().map(product ->
+                new ProductResponseDto(product.getId(), product.getName(),product.getPriceDto(),product.getImageDto()))
+                .collect(Collectors.toList()));
     }
 
     @Override
     public ProductResponseDto findById(String id){
         Product product = productRepository.findById(id);
-        return  new ProductResponseDto(product.getId(),product.getName(),product.getPriceDto());
+        return  new ProductResponseDto(product.getId(),product.getName(),product.getPriceDto(),product.getImageDto());
 
     }
 
@@ -42,7 +44,8 @@ public class ProductFacadeImpl implements ProductFacade {
         //Stworzyć produkt
         String id = UUID.randomUUID().toString();
         LocalDateTime createdAt = LocalDateTime.now();
-        Product product = new Product(id, productRequest.getName(), createdAt, productRequest.getPrice());
+        Product product = new Product(id, productRequest.getName(), createdAt,
+                productRequest.getPrice(), productRequest.getImageDto());
 
         // zapisać go
         productRepository.save(product);
@@ -54,7 +57,8 @@ public class ProductFacadeImpl implements ProductFacade {
         return new ProductResponseDto(
                 product.getId(),
                 product.getName(),
-                product.getPriceDto()
+                product.getPriceDto(),
+                product.getImageDto()
         );
     }
 
@@ -67,7 +71,8 @@ public class ProductFacadeImpl implements ProductFacade {
         Product product = productRepository.findById(id);
         Product updatedProduct = productRepository.update(productRequestDto.getName(),product, productRequestDto.getPrice());
 
-        return new ProductResponseDto(updatedProduct.getId(), updatedProduct.getName(),updatedProduct.getPriceDto());
+        return new ProductResponseDto(updatedProduct.getId(), updatedProduct.getName(),
+                updatedProduct.getPriceDto(),product.getImageDto());
     }
 
     @Override

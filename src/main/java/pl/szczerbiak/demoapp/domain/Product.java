@@ -10,17 +10,23 @@ public final class Product {
     private final String name;
     private final LocalDateTime createdAt;
 
+    private final PriceDto priceDto;
+    private final ImageDto imageDto;
+
     public PriceDto getPriceDto() {
         return priceDto;
     }
 
-    private final PriceDto priceDto;
+    public ImageDto getImageDto() {
+        return imageDto;
+    }
 
-    public Product(String id, String name, LocalDateTime createdAt, PriceDto priceDto) {
+    public Product(String id, String name, LocalDateTime createdAt, PriceDto priceDto, ImageDto imageDto) {
         this.id = id;
         this.name = name;
         this.createdAt = createdAt;
         this.priceDto = priceDto;
+        this.imageDto = imageDto;
 
     }
 

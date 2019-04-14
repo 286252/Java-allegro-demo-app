@@ -8,15 +8,22 @@ public class ProductResponseDto {
     private final String id;
     private final String name;
     private final PriceDto priceDto;
+    private final ImageDto imageDto;
 
     @Override
     public String toString() {
         return "ProductResponseDto{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                //", price='" + priceDto + '\'' +
+                ", price='" + priceDto + '\'' +
+                ", image='" + imageDto + '\'' +
                 '}';
     }
+
+    public ImageDto getImageDto() {
+        return imageDto;
+    }
+
 
     public PriceDto getPriceDto() {
         return priceDto;
@@ -25,10 +32,12 @@ public class ProductResponseDto {
     @JsonCreator
     public ProductResponseDto(@JsonProperty("id")String id,
                               @JsonProperty("name") String name,
-                              @JsonProperty("price") PriceDto priceDto) {
+                              @JsonProperty("price") PriceDto priceDto,
+                              @JsonProperty("image") ImageDto imageDto) {
         this.id = id;
         this.name = name;
         this.priceDto = priceDto;
+        this.imageDto = imageDto;
     }
 
     public String getId() {

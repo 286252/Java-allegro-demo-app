@@ -8,15 +8,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ProductRequestDto {
     private final String name;
     private final PriceDto priceDto;
+    private final ImageDto imageDto;
+
+    public ImageDto getImageDto() {
+        return imageDto;
+    }
 
     public PriceDto getPrice() {
         return priceDto;
     }
 
     @JsonCreator
-    public ProductRequestDto(@JsonProperty("name") String name, @JsonProperty("price") PriceDto priceDto) {
+    public ProductRequestDto(@JsonProperty("name") String name,
+                             @JsonProperty("price") PriceDto priceDto,
+                             @JsonProperty("image") ImageDto imageDto) {
         this.name = name;
         this.priceDto = priceDto;
+        this.imageDto = imageDto;
     }
 
     public boolean isValid(){
