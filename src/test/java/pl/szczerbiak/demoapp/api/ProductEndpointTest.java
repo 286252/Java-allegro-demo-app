@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import pl.szczerbiak.demoapp.DemoappApplicationTests;
 import pl.szczerbiak.demoapp.domain.*;
 
+import java.awt.*;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.*;
@@ -23,7 +24,8 @@ public class ProductEndpointTest extends DemoappApplicationTests {
     public void shouldGetExistingProducts(){
         //given
         PriceDto priceDto = new PriceDto(10.00,"PLN");
-        ProductRequestDto requestdto = new ProductRequestDto("product",priceDto);
+        ImageDto imageDto = new ImageDto("https://via.placeholder.com/150");
+        ProductRequestDto requestdto = new ProductRequestDto("product",priceDto,imageDto);
         ProductResponseDto existingProduct = productFacade.create(requestdto);
         final String url = "http://localhost:" + port + "/products/" + existingProduct.getId();
         //when
@@ -38,7 +40,8 @@ public class ProductEndpointTest extends DemoappApplicationTests {
         //given
         final String url = "http://localhost:"+port+"/products";
         PriceDto priceDto = new PriceDto(10.00,"PLN");
-        final ProductRequestDto product = new ProductRequestDto("iphone",priceDto);
+        ImageDto imageDto = new ImageDto("https://via.placeholder.com/150");
+        final ProductRequestDto product = new ProductRequestDto("iphone",priceDto,imageDto);
         String productJson = mapToJson(product);
         //when
         ResponseEntity<ProductResponseDto> result = httpClient.postForEntity(url,
@@ -54,11 +57,12 @@ public class ProductEndpointTest extends DemoappApplicationTests {
     public void shouldUpdateProduct(){
         //given
         PriceDto priceDto = new PriceDto(10.00,"PLN");
-        ProductRequestDto product = new ProductRequestDto("produkt",priceDto);
+        ImageDto imageDto = new ImageDto("https://via.placeholder.com/150");
+        ProductRequestDto product = new ProductRequestDto("produkt",priceDto,imageDto);
         ProductResponseDto existingProduct = productFacade.create(product);
         final String url = "http://localhost:" + port + "/products/" + existingProduct.getId();
 
-        ProductRequestDto updateProduct = new ProductRequestDto("produkt2",priceDto);
+        ProductRequestDto updateProduct = new ProductRequestDto("produkt2",priceDto,imageDto);
         String productJson = mapToJson(updateProduct);
         //when
         ResponseEntity<ProductResponseDto> result = httpClient.exchange(url,
@@ -73,7 +77,8 @@ public class ProductEndpointTest extends DemoappApplicationTests {
     public void shouldDeleteProduct(){
         //given
         PriceDto priceDto = new PriceDto(10.00,"PLN");
-        ProductRequestDto product = new ProductRequestDto("produkt",priceDto);
+        ImageDto imageDto = new ImageDto("https://via.placeholder.com/150");
+        ProductRequestDto product = new ProductRequestDto("produkt",priceDto,imageDto);
         ProductResponseDto existingProduct = productFacade.create(product);
         final String url = "http://localhost:" + port + "/products/" + existingProduct.getId();
         //when
@@ -95,9 +100,10 @@ public class ProductEndpointTest extends DemoappApplicationTests {
     @Test
     public void ShouldGetAll(){
         PriceDto priceDto = new PriceDto(10.00,"PLN");
-        ProductRequestDto req1 = new ProductRequestDto("product1",priceDto);
+        ImageDto imageDto = new ImageDto("https://via.placeholder.com/150");
+        ProductRequestDto req1 = new ProductRequestDto("product1",priceDto,imageDto);
         productFacade.create(req1);
-        ProductRequestDto req2 = new ProductRequestDto("product2",priceDto);
+        ProductRequestDto req2 = new ProductRequestDto("product2",priceDto,imageDto);
         productFacade.create(req2);
 
     }
@@ -106,9 +112,10 @@ public class ProductEndpointTest extends DemoappApplicationTests {
     public void ShouldGetALLExistProduct() {
         //given
         PriceDto priceDto = new PriceDto(10.00,"PLN");
-        ProductRequestDto request1 = new ProductRequestDto("product1",priceDto);
+        ImageDto imageDto = new ImageDto("https://via.placeholder.com/150");
+        ProductRequestDto request1 = new ProductRequestDto("product1",priceDto,imageDto);
         productFacade.create(request1);
-        ProductRequestDto request2 = new ProductRequestDto("product2",priceDto);
+        ProductRequestDto request2 = new ProductRequestDto("product2",priceDto,imageDto);
         productFacade.create(request2);
 
         final String url = "http://localhost:" + port + "/products";

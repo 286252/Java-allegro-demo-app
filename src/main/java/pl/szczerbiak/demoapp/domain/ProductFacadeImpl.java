@@ -69,7 +69,8 @@ public class ProductFacadeImpl implements ProductFacade {
         }
 
         Product product = productRepository.findById(id);
-        Product updatedProduct = productRepository.update(productRequestDto.getName(),product, productRequestDto.getPrice());
+        Product updatedProduct = productRepository.update(productRequestDto.getName(),product,
+                productRequestDto.getPrice(), productRequestDto.getImageDto());
 
         return new ProductResponseDto(updatedProduct.getId(), updatedProduct.getName(),
                 updatedProduct.getPriceDto(),product.getImageDto());
