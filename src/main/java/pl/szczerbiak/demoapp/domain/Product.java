@@ -12,6 +12,7 @@ public final class Product {
 
     private final PriceDto priceDto;
     private final ImageDto imageDto;
+    private final DescriptionDto descriptionDto;
 
     public PriceDto getPriceDto() {
         return priceDto;
@@ -21,13 +22,14 @@ public final class Product {
         return imageDto;
     }
 
-    public Product(String id, String name, LocalDateTime createdAt, PriceDto priceDto, ImageDto imageDto) {
+    public Product(String id, String name, LocalDateTime createdAt,
+                   PriceDto priceDto, ImageDto imageDto, DescriptionDto descriptionDto) {
         this.id = id;
         this.name = name;
         this.createdAt = createdAt;
         this.priceDto = priceDto;
         this.imageDto = imageDto;
-
+        this.descriptionDto = descriptionDto;
     }
 
     public String getId() {
@@ -40,6 +42,10 @@ public final class Product {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    public DescriptionDto getDescriptionDto() {
+        return descriptionDto;
     }
 
     @Override

@@ -24,14 +24,14 @@ public class ProductFacadeImpl implements ProductFacade {
     public ProductsListResponseDto getAll() {
         List<Product> products = productRepository.getAll();
         return new ProductsListResponseDto(products.stream().map(product ->
-                new ProductResponseDto(product.getId(), product.getName(),product.getPriceDto(),product.getImageDto()))
+                new ProductResponseDto(product.getId(), product.getName(),product.getPriceDto(),product.getImageDto(),product.getDescriptionDto()))
                 .collect(Collectors.toList()));
     }
 
     @Override
     public ProductResponseDto findById(String id){
         Product product = productRepository.findById(id);
-        return  new ProductResponseDto(product.getId(),product.getName(),product.getPriceDto(),product.getImageDto());
+        return  new ProductResponseDto(product.getId(),product.getName(),product.getPriceDto(),product.getImageDto(),product.getDescriptionDto());
 
     }
 
@@ -45,7 +45,7 @@ public class ProductFacadeImpl implements ProductFacade {
         String id = UUID.randomUUID().toString();
         LocalDateTime createdAt = LocalDateTime.now();
         Product product = new Product(id, productRequest.getName(), createdAt,
-                productRequest.getPrice(), productRequest.getImageDto());
+                productRequest.getPrice(), productRequest.getImageDto(),productRequest.getDescriptionDto());
 
         // zapisać go
         productRepository.save(product);
@@ -58,7 +58,8 @@ public class ProductFacadeImpl implements ProductFacade {
                 product.getId(),
                 product.getName(),
                 product.getPriceDto(),
-                product.getImageDto()
+                product.getImageDto(),
+                product.getDescriptionDto()
         );
     }
 
@@ -70,10 +71,10 @@ public class ProductFacadeImpl implements ProductFacade {
 
         Product product = productRepository.findById(id);
         Product updatedProduct = productRepository.update(productRequestDto.getName(),product,
-                productRequestDto.getPrice(), productRequestDto.getImageDto());
+                productRequestDto.getPrice(), productRequestDto.getImageDto(), productRequestDto.getDescriptionDto());
 
         return new ProductResponseDto(updatedProduct.getId(), updatedProduct.getName(),
-                updatedProduct.getPriceDto(),product.getImageDto());
+                updatedProduct.getPriceDto(),product.getImageDto(),product.getDescriptionDto());
     }
 
     @Override
