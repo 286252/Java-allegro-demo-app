@@ -17,7 +17,6 @@ public class PriceDto {
                 '}';
     }
 
-    @JsonCreator
     public PriceDto(@JsonProperty("amount") double amount,
                             @JsonProperty("currency") String currency) {
         this.amount = amount;

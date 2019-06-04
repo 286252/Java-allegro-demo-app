@@ -13,8 +13,8 @@ public interface ProductFacade {
     ProductResponseDto update(String id, ProductRequestDto productRequestDto);
 
     //void delete(String dto)
-    ResponseEntity delete(String id);
-
+    ResponseEntity<Void> delete(String id);
     //getAll
     ProductsListResponseDto getAll();
+    ProductsListResponseDto getAllByTag(String tag);
 }

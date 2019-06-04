@@ -7,6 +7,7 @@ import pl.szczerbiak.demoapp.domain.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Repository
 public class InMemoryProductRepository implements ProductRepository{
@@ -25,10 +26,10 @@ public class InMemoryProductRepository implements ProductRepository{
     }
 
     @Override
-    public Product update(String name, Product product, PriceDto priceDto, ImageDto imageDto, DescriptionDto descriptionDto) {
+    public Product update(String name, Product product, PriceDto priceDto, ImageDto imageDto, DescriptionDto descriptionDto, List<TagsDto> tags) {
         if(!products.containsKey(product.getId())) throw new
                 ProductNotFoundException("Aktualizacja danych się nie powiodła, nie znaleziono produktu!");
-        products.put(product.getId(), new Product(product.getId(), name , product.getCreatedAt(),priceDto, imageDto, descriptionDto));
+        products.put(product.getId(), new Product(product.getId(), name , product.getCreatedAt(),priceDto, imageDto, descriptionDto, tags));
         return products.get(product.getId());
     }
 
@@ -44,5 +45,12 @@ public class InMemoryProductRepository implements ProductRepository{
         return List.copyOf(products.values());
     }
 
-
+    @Override
+    public List<Product> getAllByTags(String tag){
+        return products.values()
+                .stream()
+                .filter(p -> p.getTags() != null)
+                .filter(p -> p.getTags().contains(new TagsDto(tag)))
+                .collect(Collectors.toList());
+    }
 }
