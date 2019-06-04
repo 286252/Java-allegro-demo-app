@@ -98,7 +98,7 @@ public class ProductEndpointTest extends DemoappApplicationTests {
         //then
         assertThat(result.getStatusCodeValue()).isEqualTo(204);
     }*/
-
+/*
     @Test
     public void shouldReturnThatTheProductDoesNotExist(){
         //given
@@ -108,7 +108,7 @@ public class ProductEndpointTest extends DemoappApplicationTests {
         //then
         assertThat(result.getStatusCodeValue()).isEqualTo(404);
     }
-
+*/
     /*@Test
     public void ShouldGetAll(){
         PriceDto priceDto = new PriceDto(10.00,"PLN");
