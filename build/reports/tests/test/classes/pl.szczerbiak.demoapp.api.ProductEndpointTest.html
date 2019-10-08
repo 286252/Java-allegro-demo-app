@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class pl.szczerbiak.demoapp.api.ProductEndpointTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class pl.szczerbiak.demoapp.api.ProductEndpointTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/pl.szczerbiak.demoapp.api.html">pl.szczerbiak.demoapp.api</a> &gt; ProductEndpointTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1.164s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">shouldGetNotExistingProducts</td>
+<td class="success">1.164s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>09:05:57.270 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class pl.szczerbiak.demoapp.api.ProductEndpointTest]
+09:05:57.286 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+09:05:57.302 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+09:05:57.326 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [pl.szczerbiak.demoapp.api.ProductEndpointTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+09:05:57.346 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [pl.szczerbiak.demoapp.api.ProductEndpointTest], using SpringBootContextLoader
+09:05:57.350 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [pl.szczerbiak.demoapp.api.ProductEndpointTest]: class path resource [pl/szczerbiak/demoapp/api/ProductEndpointTest-context.xml] does not exist
+09:05:57.350 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [pl.szczerbiak.demoapp.api.ProductEndpointTest]: class path resource [pl/szczerbiak/demoapp/api/ProductEndpointTestContext.groovy] does not exist
+09:05:57.350 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [pl.szczerbiak.demoapp.api.ProductEndpointTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+09:05:57.354 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [pl.szczerbiak.demoapp.api.ProductEndpointTest]: ProductEndpointTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+09:05:57.430 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [pl.szczerbiak.demoapp.api.ProductEndpointTest]
+09:05:57.606 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\AspireV\Desktop\demoapp\demoapp\build\classes\java\main\pl\szczerbiak\demoapp\DemoappApplication.class]
+09:05:57.606 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration pl.szczerbiak.demoapp.DemoappApplication for test class pl.szczerbiak.demoapp.api.ProductEndpointTest
+09:05:57.734 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [pl.szczerbiak.demoapp.api.ProductEndpointTest]: using defaults.
+09:05:57.734 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.spockframework.spring.SpringMockTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+09:05:57.754 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+09:05:57.754 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+09:05:57.758 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@eff4dcb, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@51f857fa, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4f8d92ab, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@53d05e00, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2735d0a4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3461143f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@175ac0d2, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@46abbc67, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4f92e4e6, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@736ec1c7, org.spockframework.spring.SpringMockTestExecutionListener@32f3c328]
+09:05:57.762 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [pl.szczerbiak.demoapp.api.ProductEndpointTest]
+09:05:57.762 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [pl.szczerbiak.demoapp.api.ProductEndpointTest]
+09:05:57.762 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [pl.szczerbiak.demoapp.api.ProductEndpointTest]
+09:05:57.762 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [pl.szczerbiak.demoapp.api.ProductEndpointTest]
+09:05:57.770 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@6dd3c7de testClass = ProductEndpointTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@4b2aa726 testClass = ProductEndpointTest, locations = '{}', classes = '{class pl.szczerbiak.demoapp.DemoappApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.spockframework.spring.mock.SpockContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@644b4f89, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@710c0820, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@69585028, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@695729b4], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]], class annotated with @DirtiesContext [false] with mode [null].
+09:05:57.774 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [pl.szczerbiak.demoapp.api.ProductEndpointTest]
+09:05:57.778 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [pl.szczerbiak.demoapp.api.ProductEndpointTest]
+09:05:57.782 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@6dd3c7de testClass = ProductEndpointTest, testInstance = pl.szczerbiak.demoapp.api.ProductEndpointTest@12af01fe, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@4b2aa726 testClass = ProductEndpointTest, locations = '{}', classes = '{class pl.szczerbiak.demoapp.DemoappApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.spockframework.spring.mock.SpockContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@644b4f89, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@710c0820, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@69585028, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@695729b4], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]]].
+09:05:57.818 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.3.RELEASE)
+
+2019-06-04 09:05:58.386  INFO 23184 --- [    Test worker] p.s.demoapp.api.ProductEndpointTest      : Starting ProductEndpointTest on ApireV with PID 23184 (started by AspireV in C:\Users\AspireV\Desktop\demoapp\demoapp)
+2019-06-04 09:05:58.386  INFO 23184 --- [    Test worker] p.s.demoapp.api.ProductEndpointTest      : No active profile set, falling back to default profiles: default
+2019-06-04 09:06:00.771  INFO 23184 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2019-06-04 09:06:00.834  INFO 23184 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-04 09:06:00.834  INFO 23184 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-06-04 09:06:00.849  INFO 23184 --- [    Test worker] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk-11.0.2_windows-x64_bin\jdk-11.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\AspireV\bin;C:\Program Files\GitForWindows\mingw64\bin;C:\Program Files\GitForWindows\usr\local\bin;C:\Program Files\GitForWindows\usr\bin;C:\Program Files\GitForWindows\usr\bin;C:\Program Files\GitForWindows\mingw64\bin;C:\Program Files\GitForWindows\usr\bin;C:\Users\AspireV\bin;C:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\TDM-GCC-64\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\WINDOWS\System32\OpenSSH;C:\Program Files\GitForWindows\cmd;C:\Program Files\Java\jdk-11.0.2_windows-x64_bin\jdk-11.0.2;C:\Program Files\Pandoc;C:\Users\AspireV\AppData\Local\Microsoft\WindowsApps;C:\Program Files\heroku\bin;C:\Users\AspireV\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\AspireV\AppData\Local\Programs\MiKTeX 2.9\miktex\bin\x64;C:\Program Files\GitForWindows\usr\bin\vendor_perl;C:\Program Files\GitForWindows\usr\bin\core_perl;.]
+2019-06-04 09:06:01.069  INFO 23184 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-04 09:06:01.069  INFO 23184 --- [    Test worker] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2140 ms
+2019-06-04 09:06:01.704  INFO 23184 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-04 09:06:02.600  INFO 23184 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 61792 (http) with context path ''
+2019-06-04 09:06:02.604  INFO 23184 --- [    Test worker] p.s.demoapp.api.ProductEndpointTest      : Started ProductEndpointTest in 4.778 seconds (JVM running for 6.872)
+2019-06-04 09:06:03.422  INFO 23184 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-04 09:06:03.422  INFO 23184 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-04 09:06:03.469  INFO 23184 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 47 ms
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 5.2.1</a> at 4 cze 2019, 09:06:04</p>
+</div>
+</div>
+</body>
+</html>
